@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import './app.scss';
+import Header from './Components/Header/Header';
+import Contacts from './Components/Contacts/Contacts';
+import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
+import SinglePost from './Components/Contacts/SinglePost';
+import AllPosts from './Components/Contacts/AllPosts';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+        <Routes>
+        <Route path='/users' element={<Contacts />} />
+        <Route path='/posts' element={<AllPosts />} />
+        <Route path='/posts/:id' element={<SinglePost />} />
+          <Route path='*' element={<NotFoundPage />} />
+          <Route path='/' element={<Navigate to='/users'/>} />
+        </Routes>
+    </>
+    
   );
 }
 

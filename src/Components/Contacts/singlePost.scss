@@ -1,0 +1,22 @@
+.user__posts {
+    text-decoration: none;
+    color: #fff;
+}
+
+.new {
+    &__post {
+    font-size: 26px;
+    width: 70%;
+    margin: 10px auto;
+    }
+
+    &__title {
+        margin: 10px auto;
+    }
+
+    &__text {
+    width: 70%;
+    margin: 5px auto;
+    text-align: justify;
+    }
+}

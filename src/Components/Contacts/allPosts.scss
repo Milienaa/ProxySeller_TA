@@ -1,0 +1,18 @@
+.new {
+    &__posts {
+    display: block;
+    padding: 20px 10px;
+    margin: 0 auto;
+    border-bottom: 1px dashed #4c4ef1;
+    text-decoration: none;
+    color: #000;
+    }
+    &__menu {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+}
+h2 {
+    margin: 10px 0;
+}
