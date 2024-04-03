@@ -22,8 +22,15 @@ const Context = ({ children }) => {
                 }
                 return users;
             })
-            case "SEARCH": return users.filter(elem =>
-                elem.username.includes(action.payload));
+            case "SEARCH": return users.map((elem) => {
+                if (elem.username.includes(action.payload)) {
+                return {...elem, isVisible: true}
+                } else {
+                 return { ...elem, isVisible: false };
+                
+            }})
+            // case "SEARCH": return users.filter(elem =>
+            //     elem.username.includes(action.payload));
             default: return users;
         }
     }
@@ -34,6 +41,10 @@ const Context = ({ children }) => {
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
+            .then(response => {
+                response = response.map((elem) => { return { ...elem, isVisible: true } });
+                return response;
+            })
             .then(json => setContacts(json));
     }, []);
 
@@ -58,11 +69,8 @@ const Context = ({ children }) => {
         );
     }
 
-    
-
-    
-
     const handlerSearch = (str) => {
+        console.log(str);
         dispatch({ type: "SEARCH", payload: str });
     }
 

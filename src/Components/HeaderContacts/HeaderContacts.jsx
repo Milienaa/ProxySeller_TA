@@ -16,8 +16,8 @@ export default function HeaderContacts() {
                 </Col>
                 <Col xs={3}>
                     <InputGroup>
-                    <Form.Control type="text" placeholder="Enter username" ref={searchField} />
-                        <Button variant='primary' onClick={(e) => handlerSearch(searchField.current.value)}>
+                    <Form.Control type="text" placeholder="Enter username" ref={searchField} onInput={(e) => handlerSearch(searchField.current.value)}/>
+                        <Button variant='primary' >
                             <BsSearch />
                         </Button>
                     </InputGroup>
